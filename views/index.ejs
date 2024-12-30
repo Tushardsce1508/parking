@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkScout - Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Gradient Hero Section with animation */
+        .hero-section {
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border-radius: 25px;
+            padding: 12px 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        /* Card Section */
+        .card {
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title {
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #1e3c72;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 3px solid #007bff;
+        }
+
+        .social-icons a {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+            transform: scale(1.1);
+        }
+
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design Enhancements */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .card-body i {
+                font-size: 2rem;
+            }
+
+            .btn-custom {
+                padding: 10px 25px;
+            }
+
+            .footer {
+                padding: 30px 20px;
+            }
+
+            .footer p {
+                font-size: 0.9rem;
+            }
+
+            .social-icons a {
+                font-size: 1.5rem;
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-parking"></i> ParkScout
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-parking"></i> ParkScout
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            🏠 Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            ℹ️ About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/services">
+                            🛠️ Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/login">
+                            🔑 Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Welcome to ParkScout</h1>
+        <p>Your Smart Parking Companion</p>
+        <a href="/login" class="btn btn-custom">Explore Services</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container mt-5">
+        <h2 class="text-center">Why Choose Us?</h2>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card text-center shadow p-3">
+                    <div class="card-body">
+                        <i class="fas fa-car fa-3x mb-3" style="color: #007bff;"></i>
+                        <h5 class="card-title">Real-Time Parking</h5>
+                        <p class="card-text">Instant updates on parking slot availability.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center shadow p-3">
+                    <div class="card-body">
+                        <i class="fas fa-ruler-combined fa-3x mb-3" style="color: #007bff;"></i>
+                        <h5 class="card-title">Car Dimension Analysis</h5>
+                        <p class="card-text">Get slot suggestions tailored to your car.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center shadow p-3">
+                    <div class="card-body">
+                        <i class="fas fa-user-check fa-3x mb-3" style="color: #007bff;"></i>
+                        <h5 class="card-title">User-Friendly Design</h5>
+                        <p class="card-text">Simple and intuitive navigation for everyone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer mt-5">
+        <div class="container text-center">
+            <p>&copy; 2024 <strong>ParkScout</strong>. All rights reserved.</p>
+            <p>Follow us on:</p>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" class="text-white mx-3">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="text-white mx-3">
+                    <i class="fab fa-twitter fa-2x"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="text-white mx-3">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="text-white mx-3">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+            </div>
+            <p>
+                <a href="privacy.ejs" class="text-white">Privacy Policy</a> | 
+                <a href="terms.ejs" class="text-white">Terms of Service</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html> 

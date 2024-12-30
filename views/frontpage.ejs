@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car & Bike Parking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 60px 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .dynamic-text {
+            color: white; /* Changed text color to white */
+            font-weight: bold; /* Added bold styling */
+        }
+
+        @keyframes typing {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        .intro h1 {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3s steps(40) 1s forwards;
+            color: white;
+        }
+
+        .intro p {
+            color: white;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #5c9ded;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4a8bc2;
+        }
+
+        .feedback-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .feedback-card {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .feedback-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .feedback-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#progress">Progress</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="intro">
+        <h1>Welcome to Our Car & Bike Parking System</h1>
+        <p>Your trusted parking partner for cars and bikes!</p>
+        <button onclick="window.location.href='index.html'">Explore Our Services</button>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="section dynamic-text">
+        <h2>Our History</h2>
+        <p>We started in 2010, providing secure parking services in the city.</p>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress" class="section dynamic-text">
+        <h2>Our Progress</h2>
+        <p>We have expanded to over 50 locations and continually improve our system.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section dynamic-text">
+        <h2>Our Services</h2>
+        <p>We offer parking for both cars and bikes with modern facilities and safety features.</p>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="section">
+        <h2>Customer Feedback</h2>
+        <div class="feedback-cards">
+            <div class="feedback-card">
+                <h3>John Doe</h3>
+                <p>Rating: 5/5</p>
+                <p>"Great service! Convenient and safe."</p>
+            </div>
+            <div class="feedback-card">
+                <h3>Jane Smith</h3>
+                <p>Rating: 4.5/5</p>
+                <p>"Very secure parking spots and easy to use."</p>
+            </div>
+            <div class="feedback-card">
+                <h3>Michael Brown</h3>
+                <p>Rating: 4/5</p>
+                <p>"Good system, but could use more parking spots."</p>
+            </div>
+            <div class="feedback-card">
+                <h3>Amy White</h3>
+                <p>Rating: 5/5</p>
+                <p>"Excellent service and well-maintained parking." </p>
+            </div>
+            <div class="feedback-card">
+                <h3>David Green</h3>
+                <p>Rating: 4.5/5</p>
+                <p>"Very efficient, easy to use, and always available."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact us at: contact@parking.com</p>
+    </footer>
+</body>
+</html>
