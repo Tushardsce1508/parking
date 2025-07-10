@@ -229,14 +229,20 @@
       <h2>Search Parking Availability</h2>
       <form id="parking-search-form">
         <div class="form-group">
-          <input type="text" id="location" class="form-control" placeholder="Enter your Area (City/Street)" required>
+        
+          <select id="location" class="form-control" required>
+            <option value="">Select location</option>
+            <option value="DSCE">DSCE</option>
+            <option value="DSU">DSU</option>
+            
+          </select>
         </div>
         <div class="form-group">
           <select id="vehicle-type" class="form-control" required>
             <option value="">Select Vehicle Type</option>
             <option value="car">Car</option>
             <option value="bike">Bike</option>
-            <option value="Truck">Truck</option>
+            
           </select>
         </div>
         <button type="submit" class="btn btn-search">Check Availability</button>
@@ -247,13 +253,13 @@
 
     <div class="grid-item payment-section text-center">
       <h2>Pay with QR Code <span>📱</span></h2>
-      <div class="qr-code">
-        <button id="generate-qr" class="btn btn-search">Generate QR Code</button>
+      <div class="qr-code" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <button id="generate-qr"class="btn btn-search">Generate QR Code</button>
         <button id="download-receipt-qr" class="btn btn-receipt" style="display:none;">Download Receipt 🧾</button>
-        <!-- <img src="https://via.placeholder.com/150" alt="QR Code"> -->
+        <img id="qr-code-image" src="images/scanner.png" alt="QR Code" style="display: none; margin-top: 15px; width: 200px; height: 200px;" />
       </div>
-      <!-- <p>Scan to pay</p>
-      <button class="btn btn-receipt" onclick="downloadReceipt()">Download Receipt 🧾</button> -->
+      <p>Scan to pay</p>
+      <button class="btn btn-receipt" onclick="downloadReceipt()">Download Receipt 🧾</button>
     </div>
 
     <script>
@@ -261,14 +267,21 @@
       
       // Generate QR Code
       document.getElementById('generate-qr').addEventListener('click', async () => {
-          const response = await fetch(`${backendUrl}/generate-qr`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ amount: 20, userId: 'user123' })
-          });
-          const data = await response.json();
-          document.getElementById('qr-code-section').innerHTML = `<img src="${data.qrCode}" alt="QR Code">`;
-          document.getElementById('download-receipt-qr').style.display = 'block';
+          // const response = await fetch(`${backendUrl}/generate-qr`, {
+          //     method: 'POST',
+          //     headers: { 'Content-Type': 'application/json' },
+          //     body: JSON.stringify({ amount: 20, userId: 'user123' })
+          // });
+          const qrCodeImage = document.getElementById('qr-code-image');
+          if (qrCodeImage.style.display === 'none' || qrCodeImage.style.display === '') {
+            qrCodeImage.style.display = 'block';
+          } else {
+            qrCodeImage.style.display = 'none';
+          }
+
+          // const data = await response.json();
+          // document.getElementById('qr-code-section').innerHTML = `<img src="${data.qrCode}" alt="QR Code">`;
+          // document.getElementById('download-receipt-qr').style.display = 'block';
       });
       
       // Process Card Payment
@@ -295,24 +308,26 @@
 
     <div class="grid-item payment-section text-center">
       <h3>Pay with Credit/Debit Card <span>💳</span></h3>
-      <p>Enter your card details securely.</p>
+      <!-- <p>Enter your card details securely.</p> -->
       <form id="card-payment-form">
         <input type="text" id="card-number" class="form-control" placeholder="Card Number" required>
         <input type="text" id="card-cvc" class="form-control" placeholder="CVC" required>
         <input type="text" id="card-expiry" class="form-control" placeholder="MM/YY" required>
-        <button type="submit" class="btn btn-search">Pay Now</button>
+        <button type="submit" class="btn btn-search">Pay Now</button><p>Your Details is secured with us</p>
       </form>
       <button id="download-receipt-card" class="btn btn-receipt" style="display:none;">Download Receipt 🧾</button>
+    <button class="btn btn-receipt" onclick="downloadReceipt()">Download Receipt 🧾</button> 
     </div>
-      <!-- <button class="btn btn-receipt" onclick="downloadReceipt()">Download Receipt 🧾</button> -->
-    </div>
-  </div>
+   
+  </div> 
+</div>
 
   <!-- Footer Section -->
   <div class="footer">
     <p>&copy; 2024 <strong>ParkScout</strong>. All rights reserved.</p>
     <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
   </div>
+
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
