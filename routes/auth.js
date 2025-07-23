@@ -19,15 +19,9 @@ router.post("/register", async (req, res) => {
     return res.status(400).json({ error: "Invalid email format" });
    }
 
-    // Step 1: Check if username is provided
+    // Check if username is provided
   if (!username) {
     return res.status(400).json({ error: "Username is required" });
-  }
-
-  // Step 2: Validate username pattern (3-4 characters, special character, 4 digits)
-  const usernameRegex = /^[a-zA-Z]{3,4}[@$][0-9]{3}$/;
-  if (!usernameRegex.test(username)) {
-    return res.status(400).json({ error: "Username must be 3-4 characters, followed by a special symbol (@ or $) and 3 digits" });
   }
    
     // Check if user already exists
@@ -35,25 +29,6 @@ router.post("/register", async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ error: "Username already exists" });
     }
-
-  //   // Step 6: Check if password and confirmPassword are provided
-  // if (!password || !confirmPassword) {
-  //   return res.status(400).json({ error: "Password and confirm password are required" });
-  // }
-
-  // // Step 7: Validate password pattern (6 random digits)
-  // const passwordRegex = /^[0-9]{6}$/;
-  // if (!passwordRegex.test(password)) {
-  //   return res.status(400).json({ error: "Password must be 6 random digits" });
-  // }
-
-  // // Step 8: Check if passwords match
-  // if (password !== confirmPassword) {
-  //   return res.status(400).json({ error: "Passwords do not match" });
-  // }
-
-  // // Step 9: Proceed with registration logic (e.g., save user to database)
-  // try {
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 

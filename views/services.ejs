@@ -13,33 +13,42 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color:#1e3c72;
-     
+      background-color: rgb(13, 110, 253);
+
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
     }
 
-    /* Header Styling */
-    .navbar {
-      background-color: #1a79de;
+    .custom-navbar .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 15px;
     }
 
-    .navbar a {
+    .custom-navbar .nav-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       color: white;
-      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 10px 5px;
     }
 
-    .navbar a:hover {
-      color: #ffcc00;
+    .custom-navbar .nav-icon {
+      font-size: 20px;
+      margin-bottom: 5px;
     }
 
     /* Grid Section */
     .grid-section {
       display: flex;
       justify-content: center;
-      align-items: flex-end; /* Align the bottom of all grids */
+      align-items: flex-end;
+      /* Align the bottom of all grids */
       margin-top: 50px;
     }
 
@@ -101,7 +110,7 @@
     }
 
     .payment-option {
-      background-color: #007bff;
+      background-color: rgb(13, 110, 253);
       color: white;
       border-radius: 8px;
       padding: 20px;
@@ -133,7 +142,7 @@
 
     /* Footer */
     .footer {
-      background-color: #003366;
+      background-color: rgb(13, 110, 253);
       color: white;
       padding: 25px 0;
       text-align: center;
@@ -148,7 +157,7 @@
     .footer a:hover {
       text-decoration: underline;
     }
-
+  
     /* Responsive Design */
     @media (max-width: 768px) {
       .grid-item {
@@ -189,38 +198,48 @@
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <i class="fas fa-parking"></i> ParkScout
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">
-                        🏠 Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">
-                        ℹ️ About
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/services">
-                        🛠️ Services
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/auth/login">
-                        🔑 Login
-                    </a>
-                </li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="/">
+        <i class="fas fa-parking"></i> ParkScout
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto custom-navbar">
+          <li class="nav-item text-center">
+            <a class="nav-link" href="/">
+              <div class="nav-icon">🏠</div>
+              <div class="nav-text">Home</div>
+            </a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link" href="/about">
+              <div class="nav-icon">ℹ️</div>
+              <div class="nav-text">About</div>
+            </a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link" href="/services">
+              <div class="nav-icon">🛠️</div>
+              <div class="nav-text">Services</div>
+            </a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link" href="/dashboard">
+              <div class="nav-icon"><i class="fas fa-tachometer-alt"></i></div>
+              <div class="nav-text">Dashboard</div>
+            </a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link" href="/auth/login">
+              <div class="nav-icon">🔑</div>
+              <div class="nav-text">Login</div>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
 
   <!-- Grid Section (Aligned Top and Bottom) -->
@@ -229,12 +248,12 @@
       <h2>Search Parking Availability</h2>
       <form id="parking-search-form">
         <div class="form-group">
-        
+
           <select id="location" class="form-control" required>
             <option value="">Select location</option>
             <option value="DSCE">DSCE</option>
             <option value="DSU">DSU</option>
-            
+
           </select>
         </div>
         <div class="form-group">
@@ -242,7 +261,7 @@
             <option value="">Select Vehicle Type</option>
             <option value="car">Car</option>
             <option value="bike">Bike</option>
-            
+
           </select>
         </div>
         <button type="submit" class="btn btn-search">Check Availability</button>
@@ -250,61 +269,58 @@
 
       <div id="result-message" class="result-message"></div>
     </div>
+    
+    
 
     <div class="grid-item payment-section text-center">
       <h2>Pay with QR Code <span>📱</span></h2>
-      <div class="qr-code" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <button id="generate-qr"class="btn btn-search">Generate QR Code</button>
-        <button id="download-receipt-qr" class="btn btn-receipt" style="display:none;">Download Receipt 🧾</button>
-        <img id="qr-code-image" src="images/scanner.png" alt="QR Code" style="display: none; margin-top: 15px; width: 200px; height: 200px;" />
-      </div>
-      <p>Scan to pay</p>
-      <button class="btn btn-receipt" onclick="downloadReceipt()">Download Receipt 🧾</button>
+      <input type="text" id="qr-input" class="form-control mb-2" placeholder="Enter your Valid Mobile number">
+      <button id="generate-qr" class="btn btn-search">Generate QR Code</button>
+      <img id="qr-code-image" style="display:none; margin:5px auto 0 auto; width:150px; height:150px;object-fit:contain;" />
+      <a id="download-qr" href="#" download="qrcode.png" style="display:none; margin-top:5px;">
+
+      
+      <!-- <p class="scan-qr">Scan to pay</p> -->
+      <button class="btn btn-receipt">Download QR Code</button>
+      </a>
     </div>
 
     <script>
       const backendUrl = 'http://localhost:3000'; // Update to your deployed backend URL
-      
-      // Generate QR Code
-      document.getElementById('generate-qr').addEventListener('click', async () => {
-          // const response = await fetch(`${backendUrl}/generate-qr`, {
-          //     method: 'POST',
-          //     headers: { 'Content-Type': 'application/json' },
-          //     body: JSON.stringify({ amount: 20, userId: 'user123' })
-          // });
-          const qrCodeImage = document.getElementById('qr-code-image');
-          if (qrCodeImage.style.display === 'none' || qrCodeImage.style.display === '') {
-            qrCodeImage.style.display = 'block';
-          } else {
-            qrCodeImage.style.display = 'none';
-          }
 
-          // const data = await response.json();
-          // document.getElementById('qr-code-section').innerHTML = `<img src="${data.qrCode}" alt="QR Code">`;
-          // document.getElementById('download-receipt-qr').style.display = 'block';
-      });
-      
+      document.getElementById('generate-qr').onclick = function () {
+        const value = document.getElementById('qr-input').value;
+        if (!value) return alert('Enter payment info!');
+        const qr = new QRious({ value, size: 200 });
+        const img = document.getElementById('qr-code-image');
+        img.src = qr.toDataURL();
+        img.style.display = 'block';
+        const dl = document.getElementById('download-qr');
+        dl.href = qr.toDataURL();
+        dl.style.display = 'inline-block';
+      };
+
       // Process Card Payment
       document.getElementById('card-payment-form').addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const response = await fetch(`${backendUrl}/pay-with-card`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                  amount: 20,
-                  currency: 'usd',
-                  source: 'tok_visa', // Replace with actual Stripe token
-                  description: 'Parking payment'
-              })
-          });
-          const data = await response.json();
-          if (data.message === 'Payment successful') {
-              document.getElementById('download-receipt-card').style.display = 'block';
-          } else {
-              alert('Payment failed!');
-          }
+        e.preventDefault();
+        const response = await fetch(`${backendUrl}/pay-with-card`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            amount: 20,
+            currency: 'usd',
+            source: 'tok_visa', // Replace with actual Stripe token
+            description: 'Parking payment'
+          })
+        });
+        const data = await response.json();
+        if (data.message === 'Payment successful') {
+          document.getElementById('download-receipt-card').style.display = 'block';
+        } else {
+          alert('Payment failed!');
+        }
       });
-      </script>
+    </script>
 
     <div class="grid-item payment-section text-center">
       <h3>Pay with Credit/Debit Card <span>💳</span></h3>
@@ -313,14 +329,15 @@
         <input type="text" id="card-number" class="form-control" placeholder="Card Number" required>
         <input type="text" id="card-cvc" class="form-control" placeholder="CVC" required>
         <input type="text" id="card-expiry" class="form-control" placeholder="MM/YY" required>
-        <button type="submit" class="btn btn-search">Pay Now</button><p>Your Details is secured with us</p>
+        <button type="submit" class="btn btn-search">Pay Now</button>
+        <p style="margin-top:7px;">Your Details is secured with us</p>
       </form>
       <button id="download-receipt-card" class="btn btn-receipt" style="display:none;">Download Receipt 🧾</button>
-    <button class="btn btn-receipt" onclick="downloadReceipt()">Download Receipt 🧾</button> 
+      <button class="btn btn-receipt" onclick="downloadReceipt()">Download Receipt 🧾</button>
     </div>
-   
-  </div> 
-</div>
+
+  </div>
+  </div>
 
   <!-- Footer Section -->
   <div class="footer">
@@ -331,6 +348,9 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Qrious library for qrcode -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
   <!-- JavaScript for Parking Availability Check -->
   <script>
@@ -347,7 +367,7 @@
         var resultMessage = document.getElementById('result-message');
 
         if (available) {
-          resultMessage.textContent =` Parking is available for ${vehicleType} in ${location}.`;
+          resultMessage.textContent = ` Parking is available for ${vehicleType} in ${location}.`;
           resultMessage.classList.remove('no-parking');
           resultMessage.classList.add('available');
         } else {

@@ -25,15 +25,6 @@ app.get('/auth/logout', (req, res) => {
   res.redirect('/');
 });
 
-// Protected Dashboard Route
-app.get('/dashboard', (req, res) => {
-  const user = req.cookies.user;
-  if (!user) {
-    return res.redirect('/auth/login');
-  }
-  res.send(`<h1>Welcome to your dashboard</h1><a href="/auth/logout">Logout</a>`);
-});
-
 // Define routes
 app.get('/login', (req, res) => {
     res.render('login'); // Render login.ejs
