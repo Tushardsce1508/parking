@@ -34,6 +34,10 @@ app.get('/services', (req, res) => {
     res.render('services'); // Render service.ejs
 });
 
+app.get('/payment',(req,res) => {
+  res.render('payment');
+});
+
 // Import Routes
 const authRoutes = require("./routes/auth");
 const parkingRoutes = require("./routes/parking");

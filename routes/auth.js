@@ -60,6 +60,7 @@ router.get("/login", (req, res) => {
 
 //Login Logic
 router.post("/login", async (req, res) => {
+  console.log("login function called")
   try {
     const { email , password } = req.body;
 
@@ -77,6 +78,7 @@ router.post("/login", async (req, res) => {
 
     // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
+    
     if (!isMatch) {
       res.redirect("/user/dashboard");
       res.status(401).json({ error: "Invalid credentials" });
